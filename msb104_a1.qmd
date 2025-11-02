@@ -498,4 +498,5 @@ Videre brukte jeg ChatGPT til å lese, forstå og oppsummere  metadata informasj
 Under skriveprosessen skrev jeg noen ganger først tekstavsnitt på mitt morsmål, og brukte deretter ChatGPT til å oversette og forbedre den norske versjonen slik at grammatikk og logikk ble mer sammenhengende. 
 Etter hver bruk kontrollerte og redigerte jeg innholdet selv for å forhindre overredigering, og sikre at alle analyser og konklusjoner bygget på min egen forståelse og mine data.
 
+
 # Kilder
