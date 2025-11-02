@@ -1,5 +1,5 @@
 ---
-title: "Assignment 1: Data and Descriptive, MSB104 2025"
+title: "Assignment 1: Data and Descriptive, MSB104-gruppe 6 2025"
 author: Karin Liang
 format:
   html:
