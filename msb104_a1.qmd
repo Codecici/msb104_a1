@@ -490,6 +490,13 @@ I tillegg påpeker [@Cappelen2009] at Norge er et ressursrikt og institusjonelt 
 Samlet sett viser analysen at graden av regional ulikhet ikke bare reflekterer økonomisk utviklingsnivå, men også hvordan land forvalter sine ressurser og institusjoner. Effektiv ressursforvaltning og et velfungerende politisk-institusjonelt system fremstår som avgjørende for å redusere regionale forskjeller, fremme bærekraftig utvikling og motvirke økende ulikhet.
 
 # Del C: Dokumenter bruken min av AI
+I denne A1-oppgaven brukte jeg OpenAI ChatGPT (GPT-5-modellen) som et støtteverktøy i arbeidsprosessen.
+Verktøyet ble brukt til å rette kodefeil, oversette språk, forstå fagbegreper, lese og oppsummere litteratur, tolke datainnhold samt forbedre struktur og språklig klarhet i teksten. Bidrar å styrke min forståelse av analysen, utvikle resonnementet og øke kvaliteten på den skriftlige framstillingen.
+I Del A brukte jeg ChatGPT til å forstå Eurostat-datasettet og metadata-beskrivelsene, inkludert forklaring av variabler, filtreringskriterier og tilpasning av kode. Bidrar å identifisere og rette feil i R-koden, slik at resultatene stemte bedre overens med analysens formål.
+I Del B brukte jeg ChatGPT til å forklare betydningen av Gini-koeffisienten og andre indikatorer, sammenligne verdier og trender, og formulere resultatene på et mer presist og naturlig norsk.
+Videre brukte jeg ChatGPT til å lese, forstå og oppsummere  metadata informasjon, og relevant litteratur [@LESSMANN2017110], samt til å finne tilleggsreferanser [@su13021006]. 
+Under skriveprosessen skrev jeg noen ganger først tekstavsnitt på mitt morsmål, og brukte deretter ChatGPT til å oversette og forbedre den norske versjonen slik at grammatikk og logikk ble mer sammenhengende. 
+Etter hver bruk kontrollerte og redigerte jeg innholdet selv for å forhindre overredigering, og sikre at alle analyser og konklusjoner bygget på min egen forståelse og mine data.
 
 
 # Kilder
