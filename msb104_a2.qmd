@@ -1,0 +1,145 @@
+---
+title: "Assignment 2, MSB104-gruppe 6 2025"
+format: html
+editor: visual
+author: Karin Liang
+format:
+  html:
+    fig-cap-location: bottom
+    fig-number: true
+lang: NO_nb
+bibliography: references.bib
+---
+
+# Introduksjon
+
+Denne oppgaven undersøker sammenhengen mellom regional utvikling og ulikhet ved hjelp av tverrsnittsdata for året 2017, basert på datasettene gdp_pop og gini fra Assignment 1.
+
+```{r}
+# Parkker
+library(dplyr)
+library(eurostat)
+library(ggplot2)
+library(readxl)
+library(broom)
+library(lmtest)   # Inneholder dwtest(), bptest()
+library(car)      # oen diagnostiske verktøy
+
+
+# Følgende datasettene gdp_pop og gini fra assignment 1 
+# leser excel gdp_pop og gini
+gdp_pop <- read_excel("/Users/liang/Desktop/msb104/msb104_a2/gdp_pop.xlsx", sheet = "Sheet 1")
+gini <- read_excel("/Users/liang/Desktop/msb104/msb104_a2/gini.xlsx", sheet = "Sheet 1")
+```
+
+# Del A
+
+## Laster ned og slår sammen datasettene
+
+```{r}
+# Beregner 2017-endringen per innbygger, og opprett et nytt datasett
+gdp_pop_change_2017 <- gdp_pop %>%
+  mutate(NUTS2 = substr(geo, 1, 4)) %>% # Aggreger NUTS3-nivået til NUTS2
+  arrange(NUTS2, TIME_PERIOD) %>%
+  group_by(NUTS2) %>%  # grupper etter NUTS2
+  mutate(change_GDPC = GDPC - lag(GDPC)) %>%
+  filter(TIME_PERIOD == 2017) %>%
+  ungroup()
+
+# Velger Gini-verdien for 2017
+gini_2017 <- gini %>%
+  mutate(TIME_PERIOD = as.integer(TIME_PERIOD)) %>%  # Konverterer kolonnen TIME_PERIOD til heltallstype
+  filter(TIME_PERIOD == 2017) 
+
+# Slå sammen datasettet og kall det data_2017, fjern observasjoner der Gini eller change_GDPC mangler
+data_2017 <- gdp_pop_change_2017 %>%
+  left_join(gini_2017, by = "NUTS2") %>% 
+  filter(!is.na(Gini_weighted), !is.na(change_GDPC))
+```
+
+## Enkel lineær regresjon
+
+```{r}
+# Avhengig variabel: Gini_weighted
+# Uavhengig variabel: change_GDPC
+model_simple <- lm(Gini_weighted ~ change_GDPC, data = data_2017)
+```
+
+```{r}
+# Sjekker dataene direkte
+summary(model_simple)
+
+# tabler
+#| label: tbl-model_simple
+#| tbl-cap: "Resultater fra enkel lineær regresjon for 2017 (NUTS2)"
+tidy(model_simple)
+
+#| label: tbl-model_stats
+#| tbl-cap: "Modelltilpasningsstatistikk for regresjonen i 2017"
+glance(model_simple)
+
+```
+
+## OLS
+
+```{r}
+# 1 (Residualplott)
+plot(data_2017$change_GDPC, resid(model_simple),
+     main = "Residualer vs. tilpassede verdier (sjekk for linearitet)",
+     xlab = "Endring i BNP per innbygger",
+     ylab = "Residualer")
+abline(h = 0, col = "red", lwd = 2)
+
+# 2 Uavhengighet av residualer
+# Durbin–Watson-test (nullhypotese: ingen autokorrelasjon)
+dwtest(model_simple)
+
+# 3 Homoskedastisitet
+# Breusch–Pagan-test (sjekker for konstant varians)
+bptest(model_simple)
+
+# 4 Ingen multikollinearitet
+# Denne modellen har kun én uavhengig variabel, så dette kravet er automatisk oppfylt.
+# For multippel regresjon kan du bruke:
+# vif(model_multiple)
+
+# 5 Normalfordeling av residualer
+# QQ-plott + Shapiro–Wilk-test for normalitet
+qqnorm(resid(model_simple))
+qqline(resid(model_simple), col = "red", lwd = 2)
+shapiro.test(resid(model_simple))
+
+```
+
+```{r}
+plot(model_simple)
+```
+
+## visuzlization
+
+```{r, message=FALSE}
+
+#| label: fig-bivar-plot
+#| fig-cap: "Relationship between regional development and regional inequality, 2017 (NUTS2)"
+
+ggplot(data_2017, aes(x = change_GDPC, y = Gini_weighted)) +
+  geom_point(color = "darkblue") +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,             # Viser konfidensintervall som skygge
+    color = "red",
+    fill = "grey70",       # skyggen grå
+    linewidth = 1
+  ) +
+  labs(
+    title = "Regional utvikling og ulikhet (2017)",
+    x = "Endring i BNP per innbygger",
+    y = "Regional ulikhet (Gini-koeffisient)"
+  ) +
+  theme_minimal()
+
+```
+
+# Del B
+
+# Del C
