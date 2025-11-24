@@ -24,9 +24,50 @@ execute:
 
 # I. Innledning
 
+## Bakgrunn
+
+## Mål
+
+## Betydning
+
+
+
 # II. Litteraturgjennomgang
 
+Denne delen gir en oversikt over relevant litteratur fra oppgave 1–3 og danner et faglig grunnlag for å forstå sammenhenger mellom regional utvikling, utdanning, infrastruktur, demografi og inntektsulikhet.
+
+## Tidligere arbeid
+
+@LESSMANN2017110 utnytter satellittdata for nattlys fra 180 land og 3166 regioner, og finner at om lag 67–70 % av landene viser sigma-konvergens, der inntektsforskjellene mellom regioner har blitt mindre over tid. Artikkelen avdekker også en N-formet sammenheng mellom økonomisk utvikling og regional ulikhet: ulikheten kan først øke, deretter avta, og igjen stige i høyinntektsfaser. Videre peker artikkelen på at utvikling, mobilitet, åpenhet, ressurser, institusjoner, overføringer og utdanning, og etnisitet utgjør syv grupper av faktorer som kan påvirke determinanter for regional ulikhet. Denne artikkelen gir et teoretisk grunnlag for disse oppgavene og viser at regional ulikhet påvirkes av flere strukturelle forhold samtidig.
+
+I oppgave 1 benyttes @Cappelen2009 til å gi ytterligere forklaringer på hvordan regionale økonomiske forskjeller oppstår. @Cappelen2009 bruker ressursforvaltning og økonomisk utvikling i Norge, og viser at naturressurser, næringsstruktur og institusjonell utforming påvirker regioners økonomiske utviklingsmuligheter. Dette innebærer at ressursrike regioner kan ha en annen vekstbane enn andre regioner, noe som igjen påvirker regional utvikling. Videre gir @su13021006 en presis introduksjon til Gini-koeffisienten, og understreker at Gini er et av de mest brukte målene for økonomisk ulikhet, der verdien går fra 0 (full likhet) til 1 (full ulikhet). Dette gir et teoretisk grunnlag for å bruke Gini-koeffisienten som hovedindikator for regional inntektsulikhet i disse oppgavene.
+
+I oppgave 2 brukes utdanning, infrastruktur og demografi som sentrale forklaringsvariabler for regional ulikhet. @Coady2017Income viser at utdanningsulikhet har en positiv sammenheng med inntektsulikhet, og at økte utdanningsmuligheter kan redusere forskjeller. Dermed vil regioner med høyere utdanningsnivå ofte ha lavere ulikhet. Når det gjelder infrastruktur, finner @Calderon2004Infrastructure at forbedringer i blant annet veitetthet bidrar til økonomisk vekst og reduserer regional ulikhet, og at veitetthet typisk har en negativ sammenheng med Gini. Innen demografi viser @dolls2019demographic at aldring kan øke ulikhet, ettersom en høyere andel eldre kan bidra til større inntektsforskjeller.
+
+I oppgave 3 viser @kuznets2019economic utviklingen i forholdet mellom økonomisk vekst og inntektsfordeling, og argumenterer for at ulikhet kan følge et mønster der den først øker, deretter stabiliserer seg og til slutt faller, med vekt på at ulikhetsnivået kan endres med økonomiske strukturer og utviklingsstadier.
+
+Samlet sett bidrar disse litteraturene, gjennom perspektiver på regionale økonomiske forskjeller, målemetoder for ulikhet og faktorer som utdanning, infrastruktur og demografi, til det teoretiske utgangspunktet for disse oppgavene. Litteraturen peker gjennomgående på at ulikhet påvirkes av flere strukturelle forhold, og at disse kan variere betydelig mellom regioner. De nevnte litteraturene danner et faglig grunnlag for å analysere forholdet mellom regional utvikling og inntektsulikhet.
+
+## Forskningshull
+
+Selv om eksisterende litteratur gir et viktig teoretisk grunnlag for å forstå forholdet mellom regional utvikling og inntektsulikhet, finnes det fortsatt områder som er lite utforsket. 
+
+For det første, på datanivå, bygger tidligere arbeid som @LESSMANN2017110 hovedsakelig på nasjonale eller globale sammenligninger og analyserer sammenhengen mellom utvikling og ulikhet ved hjelp av tverrnasjonale datasett. Artikkelen benytter ikke Eurostat sine harmoniserte og direkte sammenlignbare NUTS2-regiondata innenfor samme statistiske rammeverk.
+
+For det andre, fokuserer mange artikler ofte på en enkelt faktor, som utdanning, infrastruktur eller demografi, og analyserer sjelden disse variablene samtidig innenfor samme empiriske ramme. I disse oppgavene analyseres imidlertid utdanningsnivå (andel høyere utdanning), transportinfrastruktur (veitetthet), demografisk struktur (andel over 65 år) og økonomisk utvikling (BNP per innbygger eller endringen i BNP per innbygger) samlet i en modell i forhold til regional inntektsulikhet (Gini).
+
+For det tredje, bruker tidligere arbeid en enkelt analysemodell, enten tverrsnittsanalyser eller  tidsseriestudier, og kombinerer sjelden flere tilnærminger som langtidsbeskrivelser, tverrsnittsregresjoner og paneldataanalyse. Dermed blir robuste tester av de samme sammenhengene på tvers av ulike metoder ofte fraværende.
+
+Disse oppgavene benytter Eurostat-data og gjennomfører en sammenlignende analyse av Belgia, Bulgaria, Nederland og Norge. Gjennom langtidsbeskrivelsen av BNP per innbygger i oppgave 1, tverrsnittsanalysen i oppgave 2, og de alternative funksjonelle formene samt panelmodellene i oppgave 3, analyseres sammenhengene mellom regional økonomisk utvikling (BNP per innbygger eller endringen i BNP per innbygger), utdanning (andel høyere utdanning), transportinfrastruktur (veitetthet), demografisk struktur (andel over 65 år) og regional inntektsulikhet (Gini) fra flere perspektiver. På denne måten gir oppgavene en helhetlig tilnærming der de samme variablene undersøkes fra ulike metodiske vinkler, basert på én konsistent datakilde.
+
 # III. Data og metodikk
+
+
+## Datakilder
+
+## Metodisk tilnærming
+
+
 
 # IV. Empiriske funn
 
@@ -55,7 +96,8 @@ summary(model_simple)
 
 ```
 
-## Multippel lineær regresjonsmodell
+
+### Multippel lineær regresjonsmodell
 
 ```{r}
 # leser excel datasettet fra A2 for multippel lineær regresjonsmodell
@@ -67,6 +109,8 @@ model_multiple <- lm(
   data = data_2017_b)
 summary(model_multiple)
 ```
+
+
 
 ## Resultater fra A3
 
@@ -100,6 +144,8 @@ modelsummary(
   fmt = 5  
 )
 ```
+
+
 
 ### Panelmodeller (Fire FE-spesifikasjoner)
 
@@ -172,11 +218,29 @@ modelsummary(
 )
 ```
 
+
+
 # V. Diskusjon
+
+## Viktige innsikter
+
+
+
+
+## Politiske implikasjoner
+
+
+
 
 # VI. Begrensninger og fremtidig forskning
 
+## Forskningsbegrensninger
+
 # VII. Konklusjon
+
+## Sammendrag
+
+## Sluttrefleksjon
 
 # VIII. Referanser
 
