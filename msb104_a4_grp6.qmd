@@ -4,7 +4,7 @@ author: Karin Liang
 editor: visual
 csl: apa7.csl
 format:
-  pdf: 
+  pdf:
     documentclass: article
     number-sections: true
     keep-tex: true
@@ -18,11 +18,12 @@ execute:
   warning: false
   message: false
   error: false
+  echo: false
 ---
 
-# 0. Kort sammendrag
+# Kort sammendrag
 
-# I. Innledning
+# Innledning
 
 ## Bakgrunn
 
@@ -32,7 +33,7 @@ execute:
 
 
 
-# II. Litteraturgjennomgang
+# Litteraturgjennomgang
 
 ## Tidligere arbeid
 
@@ -60,7 +61,7 @@ For det tredje, bruker tidligere arbeid en enkelt analysemodell, enten tverrsnit
 
 Disse oppgavene benytter Eurostat-data og gjennomfører en sammenlignende analyse av Belgia, Bulgaria, Nederland og Norge. Gjennom langtidsbeskrivelsen av BNP per innbygger i oppgave 1, tverrsnittsanalysen i oppgave 2, og de alternative funksjonelle formene samt panelmodellene i oppgave 3, analyseres sammenhengene mellom regional økonomisk utvikling (BNP per innbygger eller endringen i BNP per innbygger), utdanning (andel høyere utdanning), transportinfrastruktur (veitetthet), demografisk struktur (andel over 65 år) og regional inntektsulikhet (Gini) fra flere perspektiver. På denne måten gir oppgavene en helhetlig tilnærming der de samme variablene undersøkes fra ulike metodiske vinkler, basert på én konsistent datakilde.
 
-# III. Data og metodikk
+# Data og metodikk
 
 ## Datakilder
 
@@ -76,11 +77,9 @@ Oppgave 1 benytter en beskrivende metode (beskrivende analyse) ved å beregne og
 
 Oppgave 2 bygger på tverrsnittsdata for 2017 og estimerer både en enkel lineær regresjonsmodell og en multiple lineær regresjonsmodell. I den enkle lineære regresjonsmodellen testes hovedantakelsene i OLS, inkludert linearitet, uavhengighet, homoskedastisitet, fravær av multikollinearitet og normalfordeling av residualer. Deretter inkluderes nye forklaringsvariabler i den multiple modellen, blant annet høyere utdanning, veitetthet og andelen av befolkningen som er 65 år eller eldre. Tverrsnittstilnærmingen gjør det mulig å kontrollere flere faktorer på samme tidspunkt og sammenligne ulikhetsnivåer mellom regioner, noe som gir grunnlag for å analysere statistiske sammenhenger mellom forklaringsvariabler og regional inntektsulikhet.
 
-Oppgave 3 benytter paneldata for perioden 2008–2022 og inkluderer delmengdeanalyse, alternative funksjonelle former som log-lineær modell, kvadratisk modell og kubisk modell, heteroskedastisitetstesting, samt panelestimering (region FE, year FE, two-way FE og country FE). De alternative funksjonelle formene brukes for å undersøke om forholdet mellom variabler er robust under ulike modellspecifikasjoner. Deretter estimeres faste effekter (FE) for å kontrollere for region-, år- eller lands-spesifikke egenskaper som ikke varierer over tid, slik at modellen utnytter variasjon på tvers av år for å estimere sammenhengen mellom økonomisk utvikling, høyere utdanning, veitetthet og andelen av befolkningen som er 65 år eller eldre og regional inntektsulikhet (Gini). Fordelen med panel-FE-modeller er at de reduserer skjevhet fra uobserverbare faktorer og dermed gir mer robuste estimater enn rene tverrsnittsmodeller.
+Oppgave 3 benytter paneldata for perioden 2008–2022 og inkluderer delmengdeanalyse, alternative funksjonelle former som log-lineær modell, kvadratisk modell og kubisk modell, heteroskedastisitetstesting, samt panelestimering (region FE, year FE, two-way FE og country FE). De alternative funksjonelle formene brukes for å undersøke om forholdet mellom variabler er robust under ulike modellspecifikasjoner. Deretter estimeres faste effekter (FE) for å kontrollere for region-, år- eller lands-spesifikke egenskaper som ikke varierer over tid, slik at modellen utnytter variasjon på tvers av år for å estimere sammenhengen mellom økonomisk utvikling, høyere utdanning, veitetthet og andelen av befolkningen som er 65 år eller eldre og regional inntektsulikhet (Gini). Fordelen med panel-FE-modeller er at de reduserer skjevhet fra uobserverbare faktorer og dermed gir mer robuste estimater.
 
-# IV. Empiriske funn
-
-## Resultater fra A2
+# Empiriske funn
 
 ```{r}
 # pakker
@@ -89,6 +88,8 @@ library(modelsummary)
 library(dplyr)
 library(plm)
 ```
+
+## Resultater fra oppgave 2
 
 ### Enkel lineær regresjonsmodell
 
@@ -104,6 +105,7 @@ summary(model_simple)
 
 ```
 
+Basert på tverrsnittsanalysen i oppgave 2 estimeres først en enkel lineær regresjonsmodell for å undersøke effekten av økonomisk utvikling (endringen i BNP per innbygger) på regional inntektsulikhet (Gini). Resultatene viser en signifikant positiv sammenheng mellom økonomisk utvikling og ulikhet. Koeffisienten for økonomisk utvikling er 0.0097 og signifikant på 1 %-nivå (p = 0.0084), noe som innebærer at regioner med høyere økonomisk vekst ofte har høyere Gini-koeffisient. Den justerte R²-verdien er 0.2529, som viser at økonomisk vekst alene har begrenset forklaringskraft for regionale ulikheter.
 
 ### Multippel lineær regresjonsmodell
 
@@ -118,9 +120,11 @@ model_multiple <- lm(
 summary(model_multiple)
 ```
 
+I den multiple lineære regresjonsmodellen inkluderes flere forklaringsvariabler, blant annet transportinfrastruktur (veitetthet), utdanningsnivå (andel høyere utdanning) og demografisk struktur (andel av befolkningen som er 65 år eller eldre). Modellen viser en tydelig forbedring i forklaringskraft (justert R² = 0.4888), noe som indikerer at strukturelle forskjeller mellom regioner spiller en viktig rolle for regional inntektsulikhet. Resultatene viser at andelen høyere utdanning har en signifikant positiv effekt (koeffisient 0.00433, p = 0.00966), som innebærer at regioner med høyere utdanningsnivå også har større inntektsforskjeller. Veitetthet har en signifikant negativ sammenheng med ulikhet (koeffisient –0.0009, p = 0.03934), noe som viser at regioner med bedre transportinfrastruktur som regel har lavere ulikhet. Variabelen økonomisk utvikling beholder en svak positiv sammenheng i den multiple modellen (koeffisient 0.01126, p = 0.05738), men uten sterk statistisk signifikans. Andelen eldre over 65 år viser ingen signifikant effekt (p = 0.51634).
 
+Samlet sett viser tverrsnittsanalysen at regional inntektsulikhet ikke kan forklares av økonomisk utvikling alene. Selv om den enkle lineære modellen indikerer en positiv sammenheng mellom økonomisk vekst og ulikhet, forklarer modellen kun om lag en fjerdedel av variasjonen mellom regioner. Den utvidede multiple modellen har derimot betydelig høyere forklaringskraft og viser at utdanningsnivå og transportinfrastruktur har de sterkeste og mest konsistente sammenhengene med ulikhet, noe som er klart sterkere enn økonomisk vekst. Sammenligningen av de to modellene viser at regional ulikhet er et resultat av flere strukturelle forhold, der utdanning og transportinfrastruktur spiller en langt viktigere rolle enn økonomisk utvikling alene.
 
-## Resultater fra A3
+## Resultater fra oppgave 3
 
 ### Alternative funksjonelle former
 
@@ -149,10 +153,20 @@ modelsummary(
   ),
   stars = TRUE,
   statistic = "({statistic})",   # viser t-verdier i parentes
-  fmt = 5  
+  fmt = 5,
+  output = "markdown"   
 )
 ```
 
+Her presenteres tre alternative funksjonelle former i oppgave 3: log lineær modell, kvadratisk modell og kubisk modell. Modellene estimeres med de samme kontrollvariablene som i oppgave 2, og resultatene er oppsummert i tabell @tbl-funksjonsformer.
+
+For det første viser de tre modellene R2 verdier på henholdsvis 0.612 for log modellen, 0.640 for den kvadratiske modellen og 0.651 for den kubiske modellen. Den justerte R2 ligger i området 0.512 til 0.528, med små forskjeller mellom modellene. Når det gjelder AIC, er log modellen lavest med verdien -76.8, tett fulgt av den kvadratiske modellen med -76.4, mens den kubiske modellen er noe høyere med -75.1. Samlet sett fremstår log modellen som den beste etter modellvalgsindikatorene, mens den kvadratiske modellen har noe høyere forklaringskraft.
+
+For det andre viser den log lineære modellen en koeffisient på 0.08266 for log(change_GDPC_pct + 1), som er statistisk signifikant og indikerer en positiv sammenheng mellom økonomisk utvikling og regional ulikhet. I den kvadratiske modellen er koeffisienten for change_GDPC_pct 0.03697 og fortsatt signifikant, men kvadratet av variabelen har ingen signifikant effekt. I den kubiske modellen er ingen av de tre vekstrelaterte parameterne, change_GDPC_pct, I(change_GDPC_pct^2) eller I(change_GDPC_pct^3), signifikante. Dette viser at inkludering av tredjegradsleddet ikke gir ekstra forklaringskraft, og modellen presterer svakere enn både log og kvadratisk modell.
+
+For det tredje er variabelen høy_utdanning signifikant og positiv i alle tre modeller, med koeffisienter rundt 0.00475 til 0.0045. Dette viser at utdanningsnivået er den mest stabile forklaringsvariabelen i modellene. Variabelen vei_tetthet har negativ effekt i alle tre modellene og er signifikant i både log og kvadratiske modeller, med koeffisienter på henholdsvis -0.00087 og -0.00086. I den kubiske modellen er effekten svakere og kun svakt signifikant, med koeffisient -0.00078. Variabelen andelen_over65 er ikke signifikant i noen av modellspesifikasjonene.
+
+Samlet sett viser tabell @tbl-funksjonsformer at log lineær, kvadratisk og kubisk modell alle fanger opp sammenhengen mellom økonomisk utvikling og inntektsulikhet, men med ulike resultater. Log lineær modell og kvadratisk modell viser tydeligere statistiske sammenhenger for vekstvariabelen, mens den kubiske modellen, til tross for høy R², ikke har signifikante vekstparametere og tilfører lite informasjon. Basert på sammenligning av R² og AIC vurderes log lineær og kvadratisk modell som de mest representative alternative funksjonelle formene.
 
 
 ### Panelmodeller (Fire FE-spesifikasjoner)
@@ -222,13 +236,22 @@ modelsummary(
     "Country FE" = fe_country
   ),
   stars = TRUE, 
-  fmt = 5 
+  fmt = 5,
+  output = "markdown" 
 )
 ```
 
+For å analysere de dynamiske endringene innenfor regioner over tid estimerer oppgave 3 fire typer faste effektsmodeller: region FE, year FE, two way FE og country FE. Variabelen veitetthet er ikke inkludert i panelmodellene, siden faste effekter kun kan estimere variabler som varierer over tid innen samme region. Variabler som er tidsinvariante eller har svært liten variasjon kan ikke få identifisert koeffisienter. Derfor inneholder panelanalysen kun variablene høy_utdanning og andelen_over65, som begge varierer over tid.
 
+For det første viser tabell @tbl-panel at alle panelmodellene har svært lave R2 verdier. Region FE har R² på 0.004, year FE 0.022, two way FE 0.006 og country FE 0.009. Den justerte R² er negativ for alle modellene i området fra -0.130 til -0.028. Dette viser at uansett hvilken type faste effekter som benyttes, har modellene svært begrenset evne til å forklare variasjonen i Gini over tid.
 
-# V. Diskusjon
+For det andre viser koeffisientenes signifikans at nesten ingen variabler er signifikante i noen av de fire modellene. Høy_utdanning ligger svært nær null i alle spesifikasjoner, med koeffisienter mellom -0.00036 og 0.00041, og ingen av dem er signifikante. Andelen_over65 viser svak signifikans i year FE modellen med koeffisient 0.00315, men er ikke signifikant i de øvrige modellene. Dette betyr at både utdanningsnivå og andelen eldre over 65 år har svært liten variasjon over tid, og selv etter kontroll for faste effekter bidrar disse variablene i liten grad til å forklare årlige endringer i Gini.
+
+For det tredje viser modellsammenligningen at year FE modellen har den høyeste R² med 0.022, men forklaringskraften er fortsatt svært lav. Two way FE kontrollerer både region og år, men har likevel en R² på kun 0.006, som er lavere enn year FE. Country FE modellen bruker faste effekter på landsnivå, men inkluderer bare 35 observasjoner, og ingen av koeffisientene er signifikante.
+
+Samlet sett viser tabell @tbl-panel at alle fire panelmodellene har svært svak forklaringskraft, og at nøkkelvariablene ikke viser signifikante effekter i tidsdimensjonen. Koeffisientene ligger nær null, og R² verdiene er gjennomgående lave. Dette viser at faste effektsmodeller ikke klarer å identifisere tydelige dynamiske endringer i regional inntektsulikhet over tid i dette datasettet.
+
+# Diskusjon
 
 ## Viktige innsikter
 
@@ -240,16 +263,16 @@ modelsummary(
 
 
 
-# VI. Begrensninger og fremtidig forskning
+# Begrensninger og fremtidig forskning
 
 ## Forskningsbegrensninger
 
-# VII. Konklusjon
+# Konklusjon
 
 ## Sammendrag
 
 ## Sluttrefleksjon
 
-# VIII. Referanser
-
 # Vedlegg
+
+# Referanser
