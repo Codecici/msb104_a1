@@ -9,6 +9,8 @@ format:
     number-sections: true
     keep-tex: true
     papersize: A4
+    linestretch: 1.5
+    mainfont: "Times New Roman"
   html:
     fig-cap-location: bottom
     fig-number: true
@@ -280,15 +282,27 @@ Til slutt viser panelmodellene at alle faste effektsmodeller har svært lav fork
 
 Samlet sett viser disse modellene at forskjeller i regional inntektsulikhet hovedsakelig kommer fra langsiktige forskjeller mellom regioner, særlig knyttet til utdanningsnivå og transportinfrastruktur, og ikke fra endringer over tid. Andelen høy utdanning og veitetthet er signifikante i både tverrsnittsmodeller og de alternative funksjonelle formene, mens variablene ikke viser signifikante effekter i panelmodellene fordi de endrer seg svært lite over tid. Dette viser at regional inntektsulikhet i stor grad gjenspeiler varige forskjeller mellom regioner, og ikke variasjoner fra år til år.
 
-
 ## Politiske implikasjoner
 
+Resultatene fra oppgavene viser at regional inntektsulikhet i stor grad skyldes langvarige og stabile strukturelle forskjeller, snarere enn årlige svingninger i økonomisk vekst. Dette har viktige implikasjoner for regionalpolitikken.
 
+For det første er utdanningsnivået konsekvent signifikant i både tverrsnittsmodellen og de alternative funksjonelle formene, og fremstår som den viktigste forklaringsvariabelen. Dette innebærer at økt tilgang til utdanning er ett av de mest effektive langsiktige virkemidlene for å redusere regional ulikhet. I regioner med svake utdanningsressurser bør politikken prioritere bedre tilgang til høyere utdanning og kompetanseheving, for å styrke regionale utviklingsmuligheter.
 
+For det andre viser transportinfrastruktur, målt ved veitetthet, en tydelig negativ sammenheng med ulikhet på tvers av flere modeller. Dette tyder på at bedre regional tilknytning kan fremme balansert utvikling. For regioner med svak infrastruktur kan investeringer i transportforbindelser være et viktig virkemiddel for å redusere regionale forskjeller.
+
+For det tredje er den økonomiske veksten ustabil i sin signifikans, og forklaringskraften er betydelig svakere enn for utdanning og infrastruktur. Dette betyr at økonomisk vekst alene ikke er et effektivt virkemiddel for å redusere regionale forskjeller. Regionalpolitikken bør derfor rette større oppmerksomhet mot strukturelle faktorer som utdanning og infrastruktur, i stedet for kortsiktige vekststimulerende tiltak.
+
+Til slutt viser panelanalysen at de interne endringene innen regioner i perioden 2008 til 2022 er svært begrensede, og at regionale forskjeller har en tydelig langsiktig karakter. Dermed er det vanskelig for kortsiktige tiltak å endre ulikhetsmønstre raskt, noe som understreker behovet for langsiktige og vedvarende strukturelle intervensjoner.
+
+Samlet sett krever reduksjon av regional inntektsulikhet langsiktige strukturelle tiltak innen utdanning og transportinfrastruktur, snarere enn avhengighet av kortsiktige økonomiske vekststimuli.
 
 # Begrensninger og fremtidig forskning
 
 ## Forskningsbegrensninger
+
+
+
+
 
 # Konklusjon
 
