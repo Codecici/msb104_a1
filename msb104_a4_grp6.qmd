@@ -292,7 +292,7 @@ For det andre viser transportinfrastruktur, målt ved veitetthet, en tydelig neg
 
 For det tredje er den økonomiske veksten ustabil i sin signifikans, og forklaringskraften er betydelig svakere enn for utdanning og infrastruktur. Dette betyr at økonomisk vekst alene ikke er et effektivt virkemiddel for å redusere regionale forskjeller. Regionalpolitikken bør derfor rette større oppmerksomhet mot strukturelle faktorer som utdanning og infrastruktur, i stedet for kortsiktige vekststimulerende tiltak.
 
-Til slutt viser panelanalysen at de interne endringene innen regioner i perioden 2008 til 2022 er svært begrensede, og at regionale forskjeller har en tydelig langsiktig karakter. Dermed er det vanskelig for kortsiktige tiltak å endre ulikhetsmønstre raskt, noe som understreker behovet for langsiktige og vedvarende strukturelle intervensjoner.
+Til slutt viser panelanalysen at de interne endringene innen regioner i perioden 2008 til 2022 er svært begrensede, og at regionale forskjeller har en tydelig langsiktig karakter. Dette innebærer at kortsiktige tiltak vanskelig kan endre ulikhetsmønstre raskt, og at politikken derfor må bygge på langsiktige og vedvarende strukturelle tiltak.
 
 Samlet sett krever reduksjon av regional inntektsulikhet langsiktige strukturelle tiltak innen utdanning og transportinfrastruktur, snarere enn avhengighet av kortsiktige økonomiske vekststimuli.
 
@@ -300,9 +300,13 @@ Samlet sett krever reduksjon av regional inntektsulikhet langsiktige strukturell
 
 ## Forskningsbegrensninger
 
+Oppgavene har flere begrensninger knyttet til data og metode. For det første varierer Eurostats dekning mellom land, og sammenslåingen av NUTS3 til NUTS2 medfører enkelte manglende verdier, noe som reduserer antall observasjoner. Dette begrenser regresjonsmodellene og fører til en ubalansert panelstruktur, som igjen svekker muligheten til å identifisere tidsmessige endringer.
 
+For det andre endrer de sentrale forklaringsvariablene seg svært lite over tid innen regionene. Dette gjelder blant annet utdanningsnivå, veitetthet og demografisk struktur. Dette gjør det vanskelig for faste effektsmodeller å identifisere deres tidsdynamiske effekter, noe som fører til generelt svak signifikans i panelanalysene.
 
+For det tredje inkluderer oppgavene kun utdanningsnivå, veitetthet og demografisk struktur, ikke andre faktorer som kan påvirke regional ulikhet. På grunn av det begrensede antallet forklaringsvariabler kan modellene bare delvis belyse de faktorene som driver regional ulikhet.
 
+Til slutt bygger oppgavene sine konklusjoner på statistiske sammenhenger observert i modellene, og forklaringskraften er begrenset av datadekning og modellspesifikasjoner. Mer detaljerte mekanismer mellom variablene krever videre forskning med bredere datagrunnlag og utvidede metodiske tilnærminger.
 
 # Konklusjon
 
